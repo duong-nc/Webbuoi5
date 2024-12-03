@@ -1,0 +1,29 @@
+﻿@model ktraltweb.Models.Book
+
+<h2>Sửa sách</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="Title">Tiêu đề</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required />
+    </div>
+    <div class="form-group">
+        <label for="Author">Tác giả</label>
+        <input type="text" class="form-control" id="Author" name="Author" value="@Model.Author" required />
+    </div>
+    <div class="form-group">
+        <label for="Description">Mô tả</label>
+        <textarea class="form-control" id="Description" name="Description" required>@Model.Description</textarea>
+    </div>
+    <div class="form-group">
+        <label for="Price">Giá</label>
+        <input type="number" step="0.01" class="form-control" id="Price" name="Price" value="@Model.Price" required />
+    </div>
+    <div class="form-group">
+        <label for="Image">Hình ảnh</label>
+        <input type="file" class="form-control" id="Image" name="Image" />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+</form>
+
+<a href="@Url.Action("Index")">Trở lại danh sách sách</a>

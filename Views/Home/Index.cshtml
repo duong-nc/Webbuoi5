@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ktraltweb.Models.Book>
+
+<h2>Danh sách sách</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Tác giả</th>
+            <th>Giá</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Price</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = book.Id })">Xem</a> |
+                    <a href="@Url.Action("Edit", new { id = book.Id })">Sửa</a> |
+                    <a href="@Url.Action("Delete", new { id = book.Id })">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Create")">Thêm sách mới</a>

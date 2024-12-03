@@ -1,0 +1,38 @@
+﻿@model ktraltweb.Models.Book
+
+<h2>Xóa sách</h2>
+
+<p>Bạn có chắc chắn muốn xóa cuốn sách này không?</p>
+
+<table class="table">
+    <tr>
+        <th>Tiêu đề</th>
+        <td>@Model.Title</td>
+    </tr>
+    <tr>
+        <th>Tác giả</th>
+        <td>@Model.Author</td>
+    </tr>
+    <tr>
+        <th>Mô tả</th>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <th>Giá</th>
+        <td>@Model.Price</td>
+    </tr>
+    <tr>
+        <th>Hình ảnh</th>
+        <td>
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                    <img src="@Model.Image" alt="Book Image" width="200" />
+            }
+        </td>
+    </tr>
+</table>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy</a>
+</form>
